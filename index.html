@@ -1,0 +1,1360 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mat Stampa - Creaciones & Sublimación</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #e8638b;
+            --primary-hover: #d84b75;
+            --secondary-color: #d4af37;
+            --salmon-red: #e05650;
+            --bg-color: #fffafb;
+            --card-bg: #ffffff;
+            --text-color: #555555;
+            --text-dark: #2c2c2c;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .top-banner {
+            background-color: var(--primary-color);
+            color: #ffffff;
+            text-align: center;
+            padding: 8px 15px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        header {
+            background: #ffffff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-container img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-text h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            line-height: 1;
+        }
+
+        .logo-text span {
+            font-size: 0.75rem;
+            letter-spacing: 3px;
+            color: #777;
+            text-transform: uppercase;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        .floating-cart-btn {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(232, 99, 139, 0.4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            z-index: 2000;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .floating-cart-btn:hover {
+            background-color: var(--primary-hover);
+            transform: scale(1.08);
+        }
+
+        .floating-cart-count {
+            position: absolute;
+            top: -2px;
+            right: -2px;
+            background: var(--salmon-red);
+            color: white;
+            border-radius: 50%;
+            width: 22px;
+            height: 22px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid #ffffff;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 60px 20px 40px;
+            background: linear-gradient(135deg, #fff0f4 0%, #ffffff 100%);
+            border-bottom: 2px solid #fcdbe4;
+        }
+
+        .hero h2 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3.5rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 25px;
+            color: #666;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.2s, background-color 0.2s;
+            box-shadow: 0 4px 12px rgba(232, 99, 139, 0.3);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+        }
+
+        .features-grid {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            max-width: 1000px;
+            margin: 40px auto 0;
+            padding: 0 10px;
+            flex-wrap: wrap;
+        }
+
+        .feature-card {
+            background: #ffffff;
+            border: 1px solid #f8c0d0;
+            border-radius: 12px;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex: 1;
+            min-width: 250px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+            text-align: left;
+        }
+
+        .feature-icon {
+            font-size: 1.8rem;
+        }
+
+        .feature-info h5 {
+            color: var(--text-dark);
+            font-size: 0.95rem;
+            font-weight: 700;
+        }
+
+        .feature-info span {
+            color: #777;
+            font-size: 0.8rem;
+        }
+
+        /* BARRA DE BÚSQUEDA BAJO LOS CUADROS */
+        .search-container {
+            max-width: 500px;
+            margin: 35px auto 0;
+            display: flex;
+            gap: 10px;
+            padding: 0 15px;
+        }
+
+        .search-input {
+            flex: 1;
+            padding: 12px 20px;
+            border: 2px solid #f8c0d0;
+            border-radius: 25px;
+            font-size: 0.95rem;
+            outline: none;
+            transition: border-color 0.3s;
+            background: #ffffff;
+        }
+
+        .search-input:focus {
+            border-color: var(--primary-color);
+        }
+
+        .search-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(232, 99, 139, 0.3);
+            transition: background-color 0.2s, transform 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .search-btn:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+        }
+
+        .no-results {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 40px;
+            color: #888;
+            font-size: 1.1rem;
+            display: none;
+        }
+
+        .section-title {
+            text-align: center;
+            margin: 40px 0 30px;
+        }
+
+        .section-title h3 {
+            font-size: 1.8rem;
+            color: var(--text-dark);
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h3::after {
+            content: '';
+            display: block;
+            width: 50%;
+            height: 2px;
+            background: var(--secondary-color);
+            margin: 8px auto 0;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .product-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid #f8c0d0;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .tag-nuevo {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background-color: var(--salmon-red);
+            color: #ffffff;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 2px 8px rgba(224, 86, 80, 0.4);
+            z-index: 5;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(232, 99, 139, 0.18);
+        }
+
+        .product-main-img {
+            width: 100%;
+            height: 230px;
+            object-fit: cover;
+            transition: opacity 0.2s;
+        }
+
+        .product-card:hover .product-main-img {
+            opacity: 0.95;
+        }
+
+        .product-card-body {
+            padding: 15px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .product-card h4 {
+            margin-bottom: 6px;
+            color: var(--text-dark);
+            font-size: 1.1rem;
+        }
+
+        .product-price {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 8px;
+        }
+
+        .product-short-desc {
+            font-size: 0.88rem;
+            color: #666;
+            margin-bottom: 12px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .view-more-text {
+            display: inline-block;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .badge {
+            display: inline-block;
+            background-color: #fff0f4;
+            color: var(--primary-color);
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 12px;
+            margin-bottom: 10px;
+            border: 1px solid #f8c0d0;
+        }
+
+        /* Modal Detalles de Producto con Slider */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(4px);
+            z-index: 2100;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .modal-content {
+            background-color: #ffffff;
+            border-radius: 16px;
+            max-width: 800px;
+            width: 100%;
+            padding: 30px;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            border: 1px solid #f8c0d0;
+            animation: modalZoom 0.3s ease;
+            display: flex;
+            gap: 25px;
+            align-items: center;
+        }
+
+        @keyframes modalZoom {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 12px;
+            right: 18px;
+            font-size: 28px;
+            font-weight: bold;
+            color: #888;
+            cursor: pointer;
+            transition: color 0.2s;
+            z-index: 10;
+        }
+
+        .modal-close:hover {
+            color: var(--primary-color);
+        }
+
+        .modal-body-left {
+            flex: 1;
+            max-width: 50%;
+            position: relative;
+        }
+
+        .slider-container {
+            width: 100%;
+            overflow: hidden;
+            border-radius: 10px;
+            position: relative;
+            background-color: #fffafb;
+        }
+
+        .slider-track {
+            display: flex;
+            transition: transform 0.4s ease-in-out;
+            width: 100%;
+        }
+
+        .slider-track img {
+            width: 100%;
+            max-height: 350px;
+            object-fit: contain;
+            flex-shrink: 0;
+        }
+
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(232, 99, 139, 0.8);
+            color: white;
+            border: none;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 5;
+            transition: background 0.2s, transform 0.2s;
+        }
+
+        .slider-btn:hover {
+            background: var(--primary-hover);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .slider-btn.prev { left: 8px; }
+        .slider-btn.next { right: 8px; }
+
+        .slider-dots {
+            display: flex;
+            justify-content: center;
+            gap: 6px;
+            margin-top: 10px;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #f8c0d0;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .dot.active {
+            background: var(--primary-color);
+        }
+
+        .modal-body-right {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: left;
+        }
+
+        .modal-body-right h4 {
+            font-size: 1.4rem;
+            color: var(--text-dark);
+            margin-bottom: 6px;
+        }
+
+        .modal-body-right .modal-price {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 12px;
+        }
+
+        .modal-body-right p {
+            font-size: 0.95rem;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            white-space: pre-line;
+        }
+
+        /* MENU LATERAL DESPLEGABLE DEL CARRITO */
+        .cart-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(2px);
+            z-index: 2500;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .cart-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .cart-sidebar {
+            position: fixed;
+            top: 0;
+            right: -400px;
+            width: 100%;
+            max-width: 400px;
+            height: 100%;
+            background: #ffffff;
+            z-index: 2600;
+            box-shadow: -5px 0 25px rgba(0, 0, 0, 0.15);
+            display: flex;
+            flex-direction: column;
+            transition: right 0.3s ease;
+            border-left: 2px solid #f8c0d0;
+        }
+
+        .cart-sidebar.active {
+            right: 0;
+        }
+
+        .cart-sidebar-header {
+            padding: 20px;
+            border-bottom: 1px solid #f8c0d0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #fffafb;
+        }
+
+        .cart-sidebar-header h3 {
+            font-size: 1.2rem;
+            color: var(--text-dark);
+        }
+
+        .close-cart-btn {
+            font-size: 24px;
+            background: none;
+            border: none;
+            color: #888;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .close-cart-btn:hover {
+            color: var(--primary-color);
+        }
+
+        .cart-sidebar-body {
+            flex: 1;
+            padding: 15px 20px;
+            overflow-y: auto;
+        }
+
+        .cart-items-list {
+            list-style: none;
+        }
+
+        .cart-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .cart-item-img {
+            width: 55px;
+            height: 55px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 1px solid #f8c0d0;
+            flex-shrink: 0;
+        }
+
+        .cart-item-info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+        }
+
+        .cart-item-title {
+            font-weight: 700;
+            font-size: 0.88rem;
+            color: var(--text-dark);
+            line-height: 1.2;
+            margin-bottom: 2px;
+        }
+
+        .cart-item-price {
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 2px;
+        }
+
+        .cart-item-desc {
+            font-size: 0.75rem;
+            color: #777;
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            line-height: 1.3;
+        }
+
+        .cart-remove-btn {
+            background: none;
+            border: none;
+            color: var(--salmon-red);
+            cursor: pointer;
+            font-size: 1.3rem;
+            padding: 0 5px;
+            transition: transform 0.2s;
+        }
+
+        .cart-remove-btn:hover {
+            transform: scale(1.2);
+        }
+
+        .cart-sidebar-footer {
+            padding: 20px;
+            border-top: 1px solid #f8c0d0;
+            background: #fffafb;
+        }
+
+        .cart-total {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+        }
+
+        .cart-total span:last-child {
+            color: var(--primary-color);
+        }
+
+        .cart-sidebar-footer .btn {
+            width: 100%;
+            text-align: center;
+        }
+
+        .customer-service {
+            background-color: #fff0f4;
+            border-top: 2px solid #f8c0d0;
+            border-bottom: 2px solid #f8c0d0;
+            padding: 50px 20px;
+            margin-top: 60px;
+        }
+
+        .customer-service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            max-width: 1000px;
+            margin: 30px auto 0;
+        }
+
+        .cs-card {
+            background: #ffffff;
+            border: 1px solid #f8c0d0;
+            border-radius: 12px;
+            padding: 25px 20px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            transition: transform 0.2s;
+        }
+
+        .cs-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .cs-icon {
+            font-size: 2.2rem;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .cs-card h4 {
+            color: var(--text-dark);
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+
+        .cs-card p {
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .cs-link {
+            color: var(--primary-color);
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .cs-link:hover {
+            color: var(--primary-hover);
+            text-decoration: underline;
+        }
+
+        footer {
+            background: #2c2c2c;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+            .modal-content {
+                flex-direction: column;
+                padding: 20px;
+            }
+            .modal-body-left {
+                max-width: 100%;
+            }
+            .modal-body-right {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-banner">
+        ✨ CATÁLOGO DIGITAL EXCLUSIVO — PEDIDOS VÍA WHATSAPP
+    </div>
+
+    <header>
+        <div class="logo-container">
+            <img src="logo.png" alt="Mat Stampa Creaciones">
+            <div class="logo-text">
+                <h1>Mat Stampa</h1>
+                <span>CREACIONES</span>
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#productos">Productos</a></li>
+                <li><a href="#atencion-cliente">Atención al Cliente</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="inicio" class="hero">
+        <h2>Diseños Únicos y Personalizados</h2>
+        <p>Transformamos tus ideas en productos especiales mediante sublimación y estampado de alta calidad.</p>
+        <a href="https://wa.me/TU_NUMERO_DE_TELEFONO" target="_blank" class="btn">Hacer un Pedido</a>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <span class="feature-icon">🌿</span>
+                <div class="feature-info">
+                    <h5>Alta Calidad</h5>
+                    <span>Selección exclusiva</span>
+                </div>
+            </div>
+
+            <div class="feature-card">
+                <span class="feature-icon">💳</span>
+                <div class="feature-info">
+                    <h5>Pago Seguro</h5>
+                    <span>Vía transferencia</span>
+                </div>
+            </div>
+
+            <div class="feature-card">
+                <span class="feature-icon">💬</span>
+                <div class="feature-info">
+                    <h5>Atención Directa</h5>
+                    <span>Asesoramiento custom</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="search-container">
+            <input type="text" id="searchInput" class="search-input" placeholder="Buscar producto por nombre o descripción...">
+            <button type="button" id="searchBtn" class="search-btn">🔍 Buscar</button>
+        </div>
+    </section>
+
+    <main id="productos">
+        <div class="section-title">
+            <h3>Nuestras Creaciones</h3>
+        </div>
+        
+        <div class="products-grid" id="productsGrid">
+            <div class="product-card" data-price="10000" data-images='["https://i.ibb.co/11Lf4f4/f6a22836-cf49-4688-8c1e-cd3b4b97a1ff.jpg"]'>
+                <span class="tag-nuevo">Nuevo</span>
+                <img src="https://i.ibb.co/11Lf4f4/f6a22836-cf49-4688-8c1e-cd3b4b97a1ff.jpg" alt="Tazas en Pedrería" class="product-main-img">
+                <div class="product-card-body">
+                    <div>
+                        <span class="badge">💎 Edición Especial</span>
+                        <h4>Tazas en Pedrería</h4>
+                        <div class="product-price">$10.000</div>
+                        <p class="product-short-desc">Taza de cerámica blanca sublimada con delicado diseño floral en tonos pastel y detalles elegantes.</p>
+                        <span class="view-more-text">🔍 Ver detalles completos</span>
+                        <div class="full-description" style="display: none;">Taza de cerámica blanca sublimada con un delicado diseño floral de rosas en tonos pastel y follaje verde.
+
+Incluye la inscripción central "Mis Quince Estrella" y un pequeño número "6" en tipografía cursiva elegante de color negro.
+
+Ideal para recuerdos de 15 años, eventos especiales o regalos personalizados únicos.</div>
+                    </div>
+                    <button class="btn add-to-cart-card">Agregar al carrito</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-price="25000" data-images='["https://i.ibb.co/4ZhG8bkC/Gemini-Generated-Image-nyeeyhnyeeyhnyee.jpg"]'>
+                <span class="tag-nuevo">Nuevo</span>
+                <img src="https://i.ibb.co/4ZhG8bkC/Gemini-Generated-Image-nyeeyhnyeeyhnyee.jpg" alt="Set de Bebé Personalizado" class="product-main-img">
+                <div class="product-card-body">
+                    <div>
+                        <span class="badge">👶 Bebés & Ajuar</span>
+                        <h4>Set de Bebé Personalizado</h4>
+                        <div class="product-price">$25.000</div>
+                        <p class="product-short-desc">Set textil artesanal suave e hipoalergénico con almohadita, babero y babita personalizados.</p>
+                        <span class="view-more-text">🔍 Ver detalles completos</span>
+                        <div class="full-description" style="display: none;">Set textil artesanal para bebé confeccionado en tela suave e hipoalergénica.
+
+Incluye:
+• Almohadita / mini cojín
+• Babero
+• Babita de toalla / algodón
+
+Personalizados mediante sublimación de alta durabilidad con el nombre ("Arianna Sofía") y la temática/personaje a elección.
+
+Uso ideal: Regalos de nacimiento, baby shower, recuerdos o ajuar de uso diario.</div>
+                    </div>
+                    <button class="btn add-to-cart-card">Agregar al carrito</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-price="15000" data-images='["https://i.ibb.co/YF2RFTGd/Gemini-Generated-Image-lgtlpdlgtlpdlgtl.png", "https://i.ibb.co/PGYPW56v/Whats-App-Image-2026-08-26-at-23-54-50-1.jpg", "https://i.ibb.co/Y4DYZx5j/Whats-App-Image-2026-08-26-at-23-54-50-2.jpg"]'>
+                <span class="tag-nuevo">Nuevo</span>
+                <img src="https://i.ibb.co/YF2RFTGd/Gemini-Generated-Image-lgtlpdlgtlpdlgtl.png" alt="Tazas Personalizadas River Plate" class="product-main-img">
+                <div class="product-card-body">
+                    <div>
+                        <span class="badge">🔥 Más Vendido</span>
+                        <h4>Tazas Personalizadas River Plate</h4>
+                        <div class="product-price">$15.000</div>
+                        <p class="product-short-desc">Doble taza personalizada con escudo, estrellas, nombre y edad.</p>
+                        <span class="view-more-text">🔍 Ver detalles completos</span>
+                        <div class="full-description" style="display: none;">Juego de tazas personalizadas de alta calidad de River Plate. Incluye estampado de alta durabilidad con el escudo oficial, estrellas representativas, y personalización de nombre y edad. Ideal para regalos de cumpleaños o fanáticos.</div>
+                    </div>
+                    <button class="btn add-to-cart-card">Agregar al carrito</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-price="2500" data-images='["https://i.ibb.co/q3tbDm1h/Gemini-Generated-Image-e9qkrle9qkrle9qk.jpg", "https://i.ibb.co/ZzvB4qd9/Gemini-Generated-Image-10tms610tms610tm.jpg"]'>
+                <span class="tag-nuevo">Nuevo</span>
+                <img src="https://i.ibb.co/q3tbDm1h/Gemini-Generated-Image-e9qkrle9qkrle9qk.jpg" alt="Llaveros Personalizados Infantiles" class="product-main-img">
+                <div class="product-card-body">
+                    <div>
+                        <span class="badge">🎈 Souvenirs</span>
+                        <h4>Llaveros Personalizados Infantiles</h4>
+                        <div class="product-price">$2.500</div>
+                        <p class="product-short-desc">Llaveros sintéticos con foto, nombre y edad con argolla metálica.</p>
+                        <span class="view-more-text">🔍 Ver detalles completos</span>
+                        <div class="full-description" style="display: none;">Llaveros personalizados con foto, nombre y edad del cumpleañero/a. Fabricados en plástico sintético resistente de alta durabilidad con argolla metálica. Ideales para recuerdos de cumpleaños, souvenirs o eventos escolares.</div>
+                    </div>
+                    <button class="btn add-to-cart-card">Agregar al carrito</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-price="5000" data-images='["https://i.ibb.co/DgMVJpSJ/watermarked-img-16176988085938139644.jpg"]'>
+                <span class="tag-nuevo">Nuevo</span>
+                <img src="https://i.ibb.co/DgMVJpSJ/watermarked-img-16176988085938139644.jpg" alt="Kit Docente Personalizado" class="product-main-img">
+                <div class="product-card-body">
+                    <div>
+                        <span class="badge">✨ Recomendado</span>
+                        <h4>Kit Docente Personalizado</h4>
+                        <div class="product-price">$5.000</div>
+                        <p class="product-short-desc">3 marcadores estampados con nombre + 1 sello automático.</p>
+                        <span class="view-more-text">🔍 Ver detalles completos</span>
+                        <div class="full-description" style="display: none;">Set ideal para profesores y docentes: incluye 3 marcadores estampados con tu nombre y materia, más 1 sello automático personalizado listo para corregir y organizar.</div>
+                    </div>
+                    <button class="btn add-to-cart-card">Agregar al carrito</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-price="10000" data-images='["https://i.ibb.co/ZpNnPB4D/Code-Generated-Image.png"]'>
+                <span class="tag-nuevo">Nuevo</span>
+                <img src="https://i.ibb.co/ZpNnPB4D/Code-Generated-Image.png" alt="Gorras Trucker Personalizadas" class="product-main-img">
+                <div class="product-card-body">
+                    <div>
+                        <span class="badge">👑 Tendencia</span>
+                        <h4>Gorras Trucker Personalizadas</h4>
+                        <div class="product-price">$10.000</div>
+                        <p class="product-short-desc">Gorras de malla regulables con frente blanco listo para sublimar.</p>
+                        <span class="view-more-text">🔍 Ver detalles completos</span>
+                        <div class="full-description" style="display: none;">Gorras de estilo trucker con malla trasera regulable y frente de poliéster acolchado blanco ideal para estampados full color. Diseños completamente a elección para eventos, empresas o estilo personal.</div>
+                    </div>
+                    <button class="btn add-to-cart-card">Agregar al carrito</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-price="15000" data-images='["tazas.jpg"]'>
+                <span class="tag-nuevo">Nuevo</span>
+                <img src="tazas.jpg" alt="Tazas Sublimadas" class="product-main-img">
+                <div class="product-card-body">
+                    <div>
+                        <h4>Tazas de Cerámica</h4>
+                        <div class="product-price">$15.000</div>
+                        <p class="product-short-desc">Tazas cerámicas sublimadas con frase, foto o diseño a elección.</p>
+                        <span class="view-more-text">🔍 Ver detalles completos</span>
+                        <div class="full-description" style="display: none;">Tazas cerámicas importadas de excelente acabado brillante. Sublimadas full color con la frase, foto, logo o diseño que más te guste. Aptas para microondas y lavavajillas.</div>
+                    </div>
+                    <button class="btn add-to-cart-card">Agregar al carrito</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-price="15000" data-images='["remeras.jpg"]'>
+                <span class="tag-nuevo">Nuevo</span>
+                <img src="remeras.jpg" alt="Remeras Sublimadas" class="product-main-img">
+                <div class="product-card-body">
+                    <div>
+                        <h4>Remeras Personalizadas</h4>
+                        <div class="product-price">$15.000</div>
+                        <p class="product-short-desc">Estampados duraderos en remeras confeccionadas en spun suave.</p>
+                        <span class="view-more-text">🔍 Ver detalles completos</span>
+                        <div class="full-description" style="display: none;">Remeras confeccionadas en tela spun con tacto algodón, livianas y frescas. Estampados con colores vivos y super duraderos que no se salen ni destiñen con los lavados.</div>
+                    </div>
+                    <button class="btn add-to-cart-card">Agregar al carrito</button>
+                </div>
+            </div>
+
+            <div id="noResults" class="no-results">
+                No se encontraron productos que coincidan con tu búsqueda.
+            </div>
+        </div>
+    </main>
+
+    <section id="atencion-cliente" class="customer-service">
+        <div class="section-title">
+            <h3>Atención al Cliente</h3>
+        </div>
+        <div class="customer-service-grid">
+            <div class="cs-card">
+                <span class="cs-icon">💬</span>
+                <h4>Consulta Directa</h4>
+                <p>¿Tienes dudas sobre un diseño o producto personalizado? Escríbenos directamente por WhatsApp.</p>
+                <a href="https://wa.me/TU_NUMERO_DE_TELEFONO" target="_blank" class="cs-link">Chatear por WhatsApp →</a>
+            </div>
+
+            <div class="cs-card">
+                <span class="cs-icon">🕒</span>
+                <h4>Horarios de Atención</h4>
+                <p>Lunes a Viernes: 09:00 - 18:00 hs<br>Sábados: 09:00 - 13:00 hs</p>
+                <span style="font-size: 0.8rem; color: #888;">Respondemos a la brevedad</span>
+            </div>
+
+            <div class="cs-card">
+                <span class="cs-icon">🚚</span>
+                <h4>Envíos y Entregas</h4>
+                <p>Coordinamos puntos de encuentro y envíos según tu localidad al concretar tu compra.</p>
+                <a href="https://wa.me/TU_NUMERO_DE_TELEFONO?text=Hola,%20quisiera%20consultar%20sobre%20los%20envíos" target="_blank" class="cs-link">Consultar zonas →</a>
+            </div>
+        </div>
+    </section>
+
+    <button class="floating-cart-btn" id="openCartBtn">
+        🛒
+        <span class="floating-cart-count" id="cartCount">0</span>
+    </button>
+
+    <div id="imageModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" id="closeProductModal">&times;</span>
+            
+            <div class="modal-body-left">
+                <div class="slider-container">
+                    <div class="slider-track" id="sliderTrack"></div>
+                    <button class="slider-btn prev" id="sliderPrev">❮</button>
+                    <button class="slider-btn next" id="sliderNext">❯</button>
+                </div>
+                <div class="slider-dots" id="sliderDots"></div>
+            </div>
+
+            <div class="modal-body-right">
+                <h4 id="modalTitle"></h4>
+                <div class="modal-price" id="modalPrice"></div>
+                <p id="modalDesc"></p>
+                <button class="btn" id="addToCartModalBtn">🛒 Agregar al carrito</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="cartOverlay" class="cart-overlay"></div>
+
+    <aside id="cartSidebar" class="cart-sidebar">
+        <div class="cart-sidebar-header">
+            <h3>🛒 Mi Carrito</h3>
+            <button id="closeCartBtn" class="close-cart-btn">&times;</button>
+        </div>
+        <div class="cart-sidebar-body">
+            <ul class="cart-items-list" id="cartList"></ul>
+        </div>
+        <div class="cart-sidebar-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cartTotalPrice">$0</span>
+            </div>
+            <button class="btn" id="sendWhatsAppBtn">Enviar Pedido por WhatsApp</button>
+        </div>
+    </aside>
+
+    <footer>
+        <p><strong>Mat Stampa Creaciones</strong> — Sublimación & Regalos Personalizados</p>
+        <p style="margin-top: 5px;">¡Contáctanos en nuestras redes sociales o por WhatsApp para armar tu pedido!</p>
+    </footer>
+
+    <script>
+        let cart = [];
+        let currentSlideIndex = 0;
+        let currentModalImages = [];
+
+        const cartCount = document.getElementById('cartCount');
+        const cartSidebar = document.getElementById('cartSidebar');
+        const cartOverlay = document.getElementById('cartOverlay');
+        const cartList = document.getElementById('cartList');
+        const cartTotalPrice = document.getElementById('cartTotalPrice');
+        const openCartBtn = document.getElementById('openCartBtn');
+        const closeCartBtn = document.getElementById('closeCartBtn');
+        const sendWhatsAppBtn = document.getElementById('sendWhatsAppBtn');
+
+        const productModal = document.getElementById('imageModal');
+        const sliderTrack = document.getElementById('sliderTrack');
+        const sliderDots = document.getElementById('sliderDots');
+        const sliderPrev = document.getElementById('sliderPrev');
+        const sliderNext = document.getElementById('sliderNext');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalPrice = document.getElementById('modalPrice');
+        const modalDesc = document.getElementById('modalDesc');
+        const closeProductModal = document.getElementById('closeProductModal');
+        const addToCartModalBtn = document.getElementById('addToCartModalBtn');
+
+        // BÚSQUEDA
+        const searchInput = document.getElementById('searchInput');
+        const searchBtn = document.getElementById('searchBtn');
+        const noResults = document.getElementById('noResults');
+
+        function filterProducts() {
+            const query = searchInput.value.toLowerCase().trim();
+            const cards = document.querySelectorAll('.product-card');
+            let found = 0;
+
+            cards.forEach(card => {
+                const title = card.querySelector('h4').innerText.toLowerCase();
+                const desc = card.querySelector('.product-short-desc').innerText.toLowerCase();
+                
+                if (title.includes(query) || desc.includes(query)) {
+                    card.style.display = 'flex';
+                    found++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            if (found === 0) {
+                noResults.style.display = 'block';
+            } else {
+                noResults.style.display = 'none';
+            }
+        }
+
+        searchBtn.addEventListener('click', filterProducts);
+        searchInput.addEventListener('input', filterProducts);
+        searchInput.addEventListener('keyup', (e) => {
+            if (e.key === 'Enter') filterProducts();
+        });
+
+        let currentModalProduct = {};
+
+        function openCart() {
+            cartSidebar.classList.add('active');
+            cartOverlay.classList.add('active');
+        }
+
+        function closeCart() {
+            cartSidebar.classList.remove('active');
+            cartOverlay.classList.remove('active');
+        }
+
+        function formatPrice(price) {
+            return '$' + Number(price).toLocaleString('es-AR');
+        }
+
+        function updateCart() {
+            cartCount.innerText = cart.length;
+            cartList.innerHTML = '';
+            let total = 0;
+
+            if (cart.length === 0) {
+                cartList.innerHTML = '<li style="text-align:center; padding: 25px 0; color:#888;">El carrito está vacío.</li>';
+                cartTotalPrice.innerText = '$0';
+                return;
+            }
+
+            cart.forEach((item, index) => {
+                total += item.price;
+                const li = document.createElement('li');
+                li.className = 'cart-item';
+                li.innerHTML = `
+                    <img src="${item.imgSrc}" alt="${item.title}" class="cart-item-img">
+                    <div class="cart-item-info">
+                        <span class="cart-item-title">${item.title}</span>
+                        <span class="cart-item-price">${formatPrice(item.price)}</span>
+                        <span class="cart-item-desc">${item.desc}</span>
+                    </div>
+                    <button class="cart-remove-btn" onclick="removeFromCart(${index})">&times;</button>
+                `;
+                cartList.appendChild(li);
+            });
+
+            cartTotalPrice.innerText = formatPrice(total);
+        }
+
+        function addToCart(title, price, imgSrc, desc) {
+            cart.push({ title, price: Number(price), imgSrc, desc });
+            updateCart();
+            openCart();
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCart();
+        }
+
+        function updateSliderPosition() {
+            sliderTrack.style.transform = `translateX(-${currentSlideIndex * 100}%)`;
+            const dots = sliderDots.querySelectorAll('.dot');
+            dots.forEach((dot, idx) => {
+                dot.classList.toggle('active', idx === currentSlideIndex);
+            });
+        }
+
+        function goToSlide(index) {
+            currentSlideIndex = index;
+            updateSliderPosition();
+        }
+
+        sliderPrev.addEventListener('click', () => {
+            currentSlideIndex = (currentSlideIndex > 0) ? currentSlideIndex - 1 : currentModalImages.length - 1;
+            updateSliderPosition();
+        });
+
+        sliderNext.addEventListener('click', () => {
+            currentSlideIndex = (currentSlideIndex < currentModalImages.length - 1) ? currentSlideIndex + 1 : 0;
+            updateSliderPosition();
+        });
+
+        document.querySelectorAll('.add-to-cart-card').forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const card = button.closest('.product-card');
+                const title = card.querySelector('h4').innerText;
+                const price = card.getAttribute('data-price');
+                const desc = card.querySelector('.product-short-desc').innerText;
+                const imgSrc = card.querySelector('.product-main-img').src;
+
+                addToCart(title, price, imgSrc, desc);
+            });
+        });
+
+        document.querySelectorAll('.product-card').forEach(card => {
+            card.addEventListener('click', (e) => {
+                if (e.target.classList.contains('add-to-cart-card')) return;
+
+                const title = card.querySelector('h4').innerText;
+                const price = card.getAttribute('data-price');
+                
+                const fullDescElement = card.querySelector('.full-description');
+                const desc = fullDescElement ? fullDescElement.innerText : card.querySelector('.product-short-desc').innerText;
+                const shortDesc = card.querySelector('.product-short-desc').innerText;
+
+                const mainImgSrc = card.querySelector('.product-main-img').src;
+                const imagesAttr = card.getAttribute('data-images');
+                currentModalImages = imagesAttr ? JSON.parse(imagesAttr) : [mainImgSrc];
+
+                currentModalProduct = { title, price, imgSrc: currentModalImages[0], desc: shortDesc };
+
+                sliderTrack.innerHTML = '';
+                sliderDots.innerHTML = '';
+                currentSlideIndex = 0;
+
+                currentModalImages.forEach((src, idx) => {
+                    const slideImg = document.createElement('img');
+                    slideImg.src = src;
+                    slideImg.alt = title;
+                    sliderTrack.appendChild(slideImg);
+
+                    if (currentModalImages.length > 1) {
+                        const dot = document.createElement('div');
+                        dot.className = `dot ${idx === 0 ? 'active' : ''}`;
+                        dot.addEventListener('click', () => goToSlide(idx));
+                        sliderDots.appendChild(dot);
+                    }
+                });
+
+                if (currentModalImages.length > 1) {
+                    sliderPrev.style.display = 'flex';
+                    sliderNext.style.display = 'flex';
+                    sliderDots.style.display = 'flex';
+                } else {
+                    sliderPrev.style.display = 'none';
+                    sliderNext.style.display = 'none';
+                    sliderDots.style.display = 'none';
+                }
+
+                updateSliderPosition();
+
+                modalTitle.innerText = title;
+                modalPrice.innerText = formatPrice(price);
+                modalDesc.innerText = desc;
+
+                productModal.style.display = 'flex';
+            });
+        });
+
+        addToCartModalBtn.addEventListener('click', () => {
+            addToCart(currentModalProduct.title, currentModalProduct.price, currentModalImages[currentSlideIndex], currentModalProduct.desc);
+            productModal.style.display = 'none';
+        });
+
+        openCartBtn.addEventListener('click', openCart);
+        closeCartBtn.addEventListener('click', closeCart);
+        cartOverlay.addEventListener('click', closeCart);
+        closeProductModal.addEventListener('click', () => productModal.style.display = 'none');
+
+        sendWhatsAppBtn.addEventListener('click', () => {
+            if (cart.length === 0) {
+                alert('Tu carrito está vacío.');
+                return;
+            }
+            let total = 0;
+            let message = "Hola! Quisiera realizar un pedido con los siguientes productos:\n\n";
+            cart.forEach((item, i) => {
+                total += item.price;
+                message += `${i + 1}. *${item.title}* — ${formatPrice(item.price)}\n`;
+            });
+            message += `\n*Total estimado: ${formatPrice(total)}*`;
+
+            const encodedMessage = encodeURIComponent(message);
+            window.open(`https://wa.me/TU_NUMERO_DE_TELEFONO?text=${encodedMessage}`, '_blank');
+        });
+
+        window.addEventListener('click', (e) => {
+            if (e.target === productModal) productModal.style.display = 'none';
+        });
+    </script>
+
+</body>
+</html>
