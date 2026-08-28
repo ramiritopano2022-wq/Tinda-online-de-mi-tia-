@@ -852,7 +852,7 @@
     <section id="inicio" class="hero">
         <h2>Diseños Únicos y Personalizados</h2>
         <p>Transformamos tus ideas en productos especiales mediante sublimación y estampado de alta calidad.</p>
-        <a href="https://wa.me/TU_NUMERO_DE_TELEFONO" target="_blank" class="btn">Hacer un Pedido</a>
+        <a href="https://wa.me/5493888614034" target="_blank" class="btn">Hacer un Pedido</a>
 
         <div class="features-grid">
             <div class="feature-card">
@@ -1046,7 +1046,7 @@ Uso ideal: Regalos de nacimiento, baby shower, recuerdos o ajuar de uso diario.<
                 <span class="cs-icon">💬</span>
                 <h4>Consulta Directa</h4>
                 <p>¿Tienes dudas sobre un diseño o producto personalizado? Escríbenos directamente por WhatsApp.</p>
-                <a href="https://wa.me/TU_NUMERO_DE_TELEFONO" target="_blank" class="cs-link">Chatear por WhatsApp →</a>
+                <a href="https://wa.me/5493888614034" target="_blank" class="cs-link">Chatear por WhatsApp →</a>
             </div>
 
             <div class="cs-card">
@@ -1060,7 +1060,7 @@ Uso ideal: Regalos de nacimiento, baby shower, recuerdos o ajuar de uso diario.<
                 <span class="cs-icon">🚚</span>
                 <h4>Envíos y Entregas</h4>
                 <p>Coordinamos puntos de encuentro y envíos según tu localidad al concretar tu compra.</p>
-                <a href="https://wa.me/TU_NUMERO_DE_TELEFONO?text=Hola,%20quisiera%20consultar%20sobre%20los%20envíos" target="_blank" class="cs-link">Consultar zonas →</a>
+                <a href="https://wa.me/5493888614034?text=Hola,%20quisiera%20consultar%20sobre%20los%20envíos" target="_blank" class="cs-link">Consultar zonas →</a>
             </div>
         </div>
     </section>
@@ -1120,6 +1120,9 @@ Uso ideal: Regalos de nacimiento, baby shower, recuerdos o ajuar de uso diario.<
         let cart = [];
         let currentSlideIndex = 0;
         let currentModalImages = [];
+
+        // CONFIGURACIÓN DEL NÚMERO DE WHATSAPP
+        const whatsappNumber = "5493888614034";
 
         const cartCount = document.getElementById('cartCount');
         const cartSidebar = document.getElementById('cartSidebar');
@@ -1334,21 +1337,27 @@ Uso ideal: Regalos de nacimiento, baby shower, recuerdos o ajuar de uso diario.<
         cartOverlay.addEventListener('click', closeCart);
         closeProductModal.addEventListener('click', () => productModal.style.display = 'none');
 
+        // ENVÍO DE PEDIDO A WHATSAPP
         sendWhatsAppBtn.addEventListener('click', () => {
             if (cart.length === 0) {
-                alert('Tu carrito está vacío.');
+                alert('Tu carrito está vacío. Agrega al menos un producto para hacer el pedido.');
                 return;
             }
+
             let total = 0;
-            let message = "Hola! Quisiera realizar un pedido con los siguientes productos:\n\n";
+            let message = "✨ *NUEVO PEDIDO DE MAT STAMPA* ✨\n\n";
+            message += "Hola! Quisiera realizar un pedido con los siguientes productos:\n\n";
+
             cart.forEach((item, i) => {
                 total += item.price;
-                message += `${i + 1}. *${item.title}* — ${formatPrice(item.price)}\n`;
+                message += `▪️ *${item.title}* - ${formatPrice(item.price)}\n`;
             });
-            message += `\n*Total estimado: ${formatPrice(total)}*`;
+
+            message += `\n💰 *Total Estimado: ${formatPrice(total)}*\n\n`;
+            message += "Quedo a la espera para coordinar los detalles de personalización y pago. ¡Gracias!";
 
             const encodedMessage = encodeURIComponent(message);
-            window.open(`https://wa.me/TU_NUMERO_DE_TELEFONO?text=${encodedMessage}`, '_blank');
+            window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, '_blank');
         });
 
         window.addEventListener('click', (e) => {
