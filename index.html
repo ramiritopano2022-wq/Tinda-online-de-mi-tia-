@@ -4,13 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mat Stampa - Creaciones & Sublimación</title>
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #e8638b;
-            --primary-hover: #d84b75;
+            --primary-color: #d88195;
+            --primary-hover: #c26b80;
             --secondary-color: #d4af37;
-            --salmon-red: #e05650;
             --bg-color: #fffafb;
             --card-bg: #ffffff;
             --text-color: #555555;
@@ -28,17 +27,6 @@
             background-color: var(--bg-color);
             color: var(--text-color);
             line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        .top-banner {
-            background-color: var(--primary-color);
-            color: #ffffff;
-            text-align: center;
-            padding: 8px 15px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            letter-spacing: 1px;
         }
 
         header {
@@ -73,8 +61,8 @@
 
         .logo-text h1 {
             font-family: 'Great Vibes', cursive;
-            font-size: 2.2rem;
-            color: var(--primary-color);
+            font-size: 2rem;
+            color: var(--text-dark);
             line-height: 1;
         }
 
@@ -102,31 +90,376 @@
             color: var(--primary-color);
         }
 
-        .floating-cart-btn {
-            position: fixed;
-            bottom: 25px;
-            right: 25px;
-            background: var(--primary-color);
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #fff5f7 0%, #ffffff 100%);
+            border-bottom: 2px solid #fce4ec;
+        }
+
+        .hero h2 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3.5rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 25px;
+            color: #666;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
             color: white;
-            border: none;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(232, 99, 139, 0.4);
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.2s, background-color 0.2s;
+            box-shadow: 0 4px 12px rgba(216, 129, 149, 0.3);
+        }
+
+        .btn:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+        }
+
+        .section-title {
+            text-align: center;
+            margin: 50px 0 30px;
+        }
+
+        .section-title h3 {
+            font-size: 1.8rem;
+            color: var(--text-dark);
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h3::after {
+            content: '';
+            display: block;
+            width: 50%;
+            height: 2px;
+            background: var(--secondary-color);
+            margin: 8px auto 0;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .product-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid #f8bbd0;
             display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(216, 129, 149, 0.18);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 230px;
+            object-fit: cover;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+
+        .product-card img:hover {
+            opacity: 0.9;
+        }
+
+        .product-card-body {
+            padding: 20px 15px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .product-card h4 {
+            margin-bottom: 8px;
+            color: var(--text-dark);
+            font-size: 1.1rem;
+        }
+
+        .product-card p {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .badge {
+            display: inline-block;
+            background-color: #fff0f3;
+            color: var(--primary-color);
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 12px;
+            margin-bottom: 10px;
+            border: 1px solid #f8bbd0;
+        }
+
+        /* Estilos de la Ventana Flotante (Modal) */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(4px);
+            z-index: 2000;
             justify-content: center;
             align-items: center;
-            font-size: 1.5rem;
-            z-index: 2000;
-            transition: transform 0.2s, background-color 0.2s;
+            padding: 20px;
         }
 
-        .floating-cart-btn:hover {
-            background-color: var(--primary-hover);
-            transform: scale(1.08);
+        .modal-content {
+            background-color: #ffffff;
+            border-radius: 16px;
+            max-width: 500px;
+            width: 100%;
+            padding: 25px;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            border: 1px solid #f8bbd0;
+            animation: modalZoom 0.3s ease;
         }
 
-        .floating-cart-count {
+        @keyframes modalZoom {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .modal-close {
             position: absolute;
-            top: -2px;
+            top: 12px;
+            right: 18px;
+            font-size: 28px;
+            font-weight: bold;
+            color: #888;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .modal-close:hover {
+            color: var(--primary-color);
+        }
+
+        .modal-content img {
+            width: 100%;
+            max-height: 320px;
+            object-fit: contain;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            background-color: #fffafb;
+        }
+
+        .modal-content h4 {
+            font-size: 1.3rem;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+        }
+
+        .modal-content p {
+            font-size: 0.95rem;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        footer {
+            background: #2c2c2c;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 60px;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <img src="logo.png" alt="Mat Stampa Creaciones">
+            <div class="logo-text">
+                <h1>Mat Stampa</h1>
+                <span>CREACIONES</span>
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#productos">Productos</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="inicio" class="hero">
+        <h2>Diseños Únicos y Personalizados</h2>
+        <p>Transformamos tus ideas en productos especiales mediante sublimación y estampado de alta calidad.</p>
+        <a href="https://wa.me/TU_NUMERO_DE_TELEFONO" target="_blank" class="btn">Hacer un Pedido</a>
+    </section>
+
+    <main id="productos">
+        <div class="section-title">
+            <h3>Nuestras Creaciones</h3>
+        </div>
+        
+        <div class="products-grid">
+            <!-- Producto Nuevo: Tazas River Plate Personalizadas -->
+            <div class="product-card">
+                <img src="https://i.ibb.co/YF2RFTGd/Gemini-Generated-Image-lgtlpdlgtlpdlgtl.png" alt="Tazas Personalizadas River Plate">
+                <div class="product-card-body">
+                    <div>
+                        <span class="badge">🔥 Más Vendido</span>
+                        <h4>Tazas Personalizadas River Plate</h4>
+                        <p>Doble taza personalizada con escudo, estrellas, nombre y edad. Ideal para regalos de cumpleaños, souvenirs o fanáticos del club.</p>
+                    </div>
+                    <a href="#contacto" class="btn">Consultar</a>
+                </div>
+            </div>
+
+            <!-- Producto 1: Kit Docente Personalizado -->
+            <div class="product-card">
+                <img src="https://i.ibb.co/DgMVJpSJ/watermarked-img-16176988085938139644.jpg" alt="Kit Docente Personalizado">
+                <div class="product-card-body">
+                    <div>
+                        <span class="badge">✨ Recomendado</span>
+                        <h4>Kit Docente Personalizado</h4>
+                        <p>Set ideal para profesores: incluye 3 marcadores estampados con tu nombre y materia, más 1 sello automático de bolsillo. ¡Práctico y original!</p>
+                    </div>
+                    <a href="#contacto" class="btn">Consultar</a>
+                </div>
+            </div>
+
+            <!-- Producto 2: Gorras Trucker Personalizadas -->
+            <div class="product-card">
+                <img src="https://i.ibb.co/ZpNnPB4D/Code-Generated-Image.png" alt="Gorras Trucker Personalizadas">
+                <div class="product-card-body">
+                    <div>
+                        <span class="badge">👑 Tendencia</span>
+                        <h4>Gorras Trucker Personalizadas</h4>
+                        <p>Gorras de malla regulable con frente blanco ideal para estampados a todo color. Perfectas para grupos, eventos o regalar un estilo único.</p>
+                    </div>
+                    <a href="#contacto" class="btn">Consultar</a>
+                </div>
+            </div>
+
+            <!-- Producto 3: Tazas -->
+            <div class="product-card">
+                <img src="tazas.jpg" alt="Tazas Sublimadas">
+                <div class="product-card-body">
+                    <div>
+                        <h4>Tazas de Cerámica</h4>
+                        <p>Personalizadas con la frase, foto o diseño que más te guste para tu día a día o regalo especial.</p>
+                    </div>
+                    <a href="#contacto" class="btn">Consultar</a>
+                </div>
+            </div>
+
+            <!-- Producto 4: Remeras -->
+            <div class="product-card">
+                <img src="remeras.jpg" alt="Remeras Sublimadas">
+                <div class="product-card-body">
+                    <div>
+                        <h4>Remeras Personalizadas</h4>
+                        <p>Estampados duraderos y colores vibrantes pensados para cualquier ocasión.</p>
+                    </div>
+                    <a href="#contacto" class="btn">Consultar</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Ventana Flotante (Modal) -->
+    <div id="imageModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" id="closeModal">&times;</span>
+            <img id="modalImg" src="" alt="">
+            <h4 id="modalTitle"></h4>
+            <p id="modalDesc"></p>
+        </div>
+    </div>
+
+    <footer id="contacto">
+        <p><strong>Mat Stampa Creaciones</strong> — Sublimación & Regalos Personalizados</p>
+        <p style="margin-top: 5px;">¡Contáctanos en nuestras redes sociales o por WhatsApp para armar tu pedido!</p>
+    </footer>
+
+    <script>
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImg');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalDesc = document.getElementById('modalDesc');
+        const closeModal = document.getElementById('closeModal');
+
+        // Escuchar clics en todas las imágenes de productos
+        document.querySelectorAll('.product-card img').forEach(img => {
+            img.addEventListener('click', () => {
+                const card = img.closest('.product-card');
+                const title = card.querySelector('h4').innerText;
+                const desc = card.querySelector('p').innerText;
+
+                modalImg.src = img.src;
+                modalImg.alt = img.alt;
+                modalTitle.innerText = title;
+                modalDesc.innerText = desc;
+
+                modal.style.display = 'flex';
+            });
+        });
+
+        // Cerrar al hacer clic en la X
+        closeModal.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+
+        // Cerrar al hacer clic fuera del contenido de la ventana
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+    </script>
+
+</body>
+</html>
+
