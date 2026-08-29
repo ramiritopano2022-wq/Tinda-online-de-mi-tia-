@@ -12,7 +12,7 @@
             --secondary-color: #d4af37;
             --salmon-red: #e05650;
             --bg-color: #fffafb;
-            --card-bg: #ffffff;
+            --card-bg: rgba(255, 255, 255, 0.95);
             --text-color: #555555;
             --text-dark: #2c2c2c;
         }
@@ -25,7 +25,11 @@
         }
 
         body {
-            background-color: var(--bg-color);
+            background-image: linear-gradient(rgba(255, 250, 251, 0.85), rgba(255, 250, 251, 0.85)), url('https://i.ibb.co/8nnK2SKZ/Gemini-Generated-Image-84e7cd84e7cd84e7.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
             color: var(--text-color);
             line-height: 1.6;
             overflow-x: hidden;
@@ -42,7 +46,8 @@
         }
 
         header {
-            background: #ffffff;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(5px);
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
             padding: 1rem 5%;
             display: flex;
@@ -147,7 +152,8 @@
         .hero {
             text-align: center;
             padding: 60px 20px 40px;
-            background: linear-gradient(135deg, #fff0f4 0%, #ffffff 100%);
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(3px);
             border-bottom: 2px solid #fcdbe4;
         }
 
@@ -195,7 +201,7 @@
         }
 
         .feature-card {
-            background: #ffffff;
+            background: rgba(255, 255, 255, 0.9);
             border: 1px solid #f8c0d0;
             border-radius: 12px;
             padding: 15px 20px;
@@ -239,7 +245,7 @@
             font-size: 0.95rem;
             outline: none;
             transition: border-color 0.3s;
-            background: #ffffff;
+            background: rgba(255, 255, 255, 0.9);
         }
 
         .search-input:focus {
@@ -317,6 +323,7 @@
             flex-direction: column;
             position: relative;
             cursor: pointer;
+            backdrop-filter: blur(2px);
         }
 
         .tag-nuevo {
@@ -381,6 +388,7 @@
             -webkit-box-orient: vertical;
             overflow: hidden;
             text-overflow: ellipsis;
+            white-space: pre-line;
         }
 
         .view-more-text {
@@ -536,6 +544,8 @@
             flex-direction: column;
             justify-content: center;
             text-align: left;
+            max-height: 80vh;
+            overflow-y: auto;
         }
 
         .modal-body-right h4 {
@@ -730,7 +740,8 @@
         }
 
         .customer-service {
-            background-color: #fff0f4;
+            background-color: rgba(255, 240, 244, 0.85);
+            backdrop-filter: blur(4px);
             border-top: 2px solid #f8c0d0;
             border-bottom: 2px solid #f8c0d0;
             padding: 50px 20px;
@@ -746,7 +757,7 @@
         }
 
         .cs-card {
-            background: #ffffff;
+            background: rgba(255, 255, 255, 0.95);
             border: 1px solid #f8c0d0;
             border-radius: 12px;
             padding: 25px 20px;
@@ -791,7 +802,7 @@
         }
 
         footer {
-            background: #2c2c2c;
+            background: rgba(44, 44, 44, 0.95);
             color: white;
             text-align: center;
             padding: 30px 20px;
@@ -889,6 +900,112 @@
         </div>
         
         <div class="products-grid" id="productsGrid">
+            <!-- Nuevo Producto: Chop de polímero -->
+            <div class="product-card" data-price="9000" data-images='["https://i.ibb.co/kgB3gR3f/Whats-App-Image-2026-08-27-at-21-24-02.jpg", "https://i.ibb.co/dsd6gpfb/Whats-App-Image-2026-08-27-at-21-24-01.jpg"]'>
+                <span class="tag-nuevo">Nuevo</span>
+                <img src="https://i.ibb.co/kgB3gR3f/Whats-App-Image-2026-08-27-at-21-24-02.jpg" alt="Chop de polímero" class="product-main-img">
+                <div class="product-card-body">
+                    <div>
+                        <span class="badge">🍺 Regalos & Eventos</span>
+                        <h4>Chop de polímero</h4>
+                        <div class="product-price">$9.000</div>
+                        <p class="product-short-desc">Chop cervecero plástico de alta resistencia, ideal para regalos personalizados, eventos, fechas especiales o uso diario.</p>
+                        <span class="view-more-text">🔍 Ver detalles completos</span>
+                        <div class="full-description" style="display: none;">Chop cervecero plástico de alta resistencia, ideal para regalos personalizados, eventos, fechas especiales o uso diario:
+
+. Material ultra resistente: Confeccionado en polímero plástico rígido (irrompible), súper liviano y apto para uso continuo.
+
+. Personalización total: Apto para sublimar con fotos, ilustraciones, escudos, nombres o frases dedicadas en alta calidad de color.
+
+. Diseño clásico: Cuenta con asa ergonómica de fácil agarre y base reforzada con anillos estéticos.</div>
+                    </div>
+                    <button class="btn add-to-cart-card">Agregar al carrito</button>
+                </div>
+            </div>
+
+            <!-- Producto: Set de jardín súper completo (6 piezas) -->
+            <div class="product-card" data-price="22000" data-images='["https://i.ibb.co/9kVYDzP9/Whats-App-Image-2026-08-27-at-21-26-33-1.jpg"]'>
+                <span class="tag-nuevo">Nuevo</span>
+                <img src="https://i.ibb.co/9kVYDzP9/Whats-App-Image-2026-08-27-at-21-26-33-1.jpg" alt="Set de jardín súper completo (Taza + Cucharita + Platito + Individual + Servilleta + Toallita)" class="product-main-img">
+                <div class="product-card-body">
+                    <div>
+                        <span class="badge">🏫 Escolar & Jardín</span>
+                        <h4>Set de jardín súper completo (Taza + Cucharita + Platito + Individual + Servilleta + Toallita)</h4>
+                        <div class="product-price">$22.000</div>
+                        <p class="product-short-desc">Kit escolar completo de 6 piezas para la merienda o desayuno en el jardín, totalmente personalizado con el nombre y personaje favorito.</p>
+                        <span class="view-more-text">🔍 Ver detalles completos</span>
+                        <div class="full-description" style="display: none;">Kit escolar completo de 6 piezas para la merienda o desayuno en el jardín, totalmente personalizado con el nombre y personaje favorito:
+
+. Taza plástica: Material irrompible y liviano, ideal para uso infantil.
+
+. Cucharita: De plástico resistente con el nombre grabado/estampado en el mango.
+
+. Platito: Platito plástico irrompible con diseño personalizado al centro.
+
+. Individual de tela: Mantel de tela lavable con bordes reinforced y estampado temático.
+
+. Servilleta de tela: Con diseño coordinado para la hora de comer.
+
+. Toallita con tira: Toalla de mano absorbente con cinta para colgar del cuello o la mochila y franja estampada haciendo juego.</div>
+                    </div>
+                    <button class="btn add-to-cart-card">Agregar al carrito</button>
+                </div>
+            </div>
+
+            <!-- Producto: Set de jardín -->
+            <div class="product-card" data-price="18000" data-images='["https://i.ibb.co/8nmxNpWL/Whats-App-Image-2026-08-27-at-21-26-33.jpg"]'>
+                <span class="tag-nuevo">Nuevo</span>
+                <img src="https://i.ibb.co/8nmxNpWL/Whats-App-Image-2026-08-27-at-21-26-33.jpg" alt="Set de jardín (Taza + Cucharita + Individual + Servilleta + Toallita)" class="product-main-img">
+                <div class="product-card-body">
+                    <div>
+                        <span class="badge">🏫 Escolar & Jardín</span>
+                        <h4>Set de jardín (Taza + Cucharita + Individual + Servilleta + Toallita)</h4>
+                        <div class="product-price">$18.000</div>
+                        <p class="product-short-desc">Set escolar supercompleto para el jardín de infantes, 100% personalizado con el nombre del niño/a y el personaje o temática a elección.</p>
+                        <span class="view-more-text">🔍 Ver detalles completos</span>
+                        <div class="full-description" style="display: none;">Set escolar supercompleto para el jardín de infantes, 100% personalizado con el nombre del niño/a y el personaje o temática a elección:
+
+.Taza plástica: Irrompible y apta para niños pequeños, personalizada con diseño a tono.
+
+.Cucharita: Cucharita plástica personalizada con el nombre en el mango.
+
+.Individual de tela: Manteles individuales lavables con bordes reforzados y diseño personalizado.
+
+.Servilleta de tela: Tela estampada haciendo juego para la merienda.
+
+.Toallita de mano: Toalla con tira para colgar del cuello o la mochila y franja estampada haciendo juego con el resto del set.</div>
+                    </div>
+                    <button class="btn add-to-cart-card">Agregar al carrito</button>
+                </div>
+            </div>
+
+            <!-- Producto: Set de bebé con Organizador -->
+            <div class="product-card" data-price="39000" data-images='["https://i.ibb.co/LdDHyDBY/Whats-App-Image-2026-08-27-at-21-36-45.jpg"]'>
+                <span class="tag-nuevo">Nuevo</span>
+                <img src="https://i.ibb.co/LdDHyDBY/Whats-App-Image-2026-08-27-at-21-36-45.jpg" alt="Set de bebé (Almohadita + Babero + Babita + Body + Organizador)" class="product-main-img">
+                <div class="product-card-body">
+                    <div>
+                        <span class="badge">👶 Bebés & Ajuar</span>
+                        <h4>Set de bebé (Almohadita + Babero + Babita + Body + Organizador)</h4>
+                        <div class="product-price">$39.000</div>
+                        <p class="product-short-desc">Set de nacimiento supercompleto y delicado, 100% personalizado con la misma temática e ilustración y el nombre del bebé.</p>
+                        <span class="view-more-text">🔍 Ver detalles completos</span>
+                        <div class="full-description" style="display: none;">Set de nacimiento supercompleto y delicado, 100% personalizado con la misma temática e ilustración y el nombre del bebé.
+
+• Body: Prenda de manga corta confeccionada en tela suave y cómoda, con cuello expansible y broches a presión en la parte inferior para facilidades en el cambio de pañal.
+
+• Almohadita decorativa: Almohadón pequeño confeccionado en tela suave/satinada, ideal para la cuna, el cochecito o la decoración del cuarto.
+
+• Babero: Con frente estampado personalizado y reverso de toalla suave absorbente.
+
+• Babita (paño para provechito): Paño de toalla suave con detalle de franja estampada haciendo juego
+
+• Organizador: Práctico contenedor organizador haciendo juego.</div>
+                    </div>
+                    <button class="btn add-to-cart-card">Agregar al carrito</button>
+                </div>
+            </div>
+
             <!-- Producto: Pulsera flúor raso -->
             <div class="product-card" data-price="400" data-images='["https://i.ibb.co/v6MnvY6H/Whats-App-Image-2026-08-27-at-21-36-08.jpg"]'>
                 <span class="tag-nuevo">Nuevo</span>
@@ -912,7 +1029,7 @@
                 </div>
             </div>
 
-            <!-- Nuevo Producto: Set de bebé con Portachupete -->
+            <!-- Producto: Set de bebé con Portachupete -->
             <div class="product-card" data-price="29000" data-images='["https://i.ibb.co/r2SXw0T0/Whats-App-Image-2026-08-27-at-21-35-24.jpg"]'>
                 <span class="tag-nuevo">Nuevo</span>
                 <img src="https://i.ibb.co/r2SXw0T0/Whats-App-Image-2026-08-27-at-21-35-24.jpg" alt="Set de bebé (Body + Babero + Babita + Portachupete)" class="product-main-img">
@@ -945,7 +1062,6 @@
                         <p class="product-short-desc">Set de nacimiento o regalo completo, temático y 100% personalizado con el nombre del bebé.</p>
                         <span class="view-more-text">🔍 Ver detalles completos</span>
                         <div class="full-description" style="display: none;">Set de nacimiento o regalo completo, temático y 100% personalizado con el nombre del bebé y un diseño a juego:
-
 • Body
 • Almohadita
 • Babero
