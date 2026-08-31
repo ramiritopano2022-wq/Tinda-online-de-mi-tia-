@@ -406,6 +406,7 @@
             border: 1px solid #f8c0d0;
         }
 
+        /* MODAL RESPONSIVO CORREGIDO */
         .modal {
             display: none;
             position: fixed;
@@ -418,32 +419,34 @@
             z-index: 2100;
             justify-content: center;
             align-items: center;
-            padding: 20px;
+            padding: 15px;
         }
 
         .modal-content {
             background-color: #ffffff;
-            border-radius: 16px;
-            max-width: 800px;
+            border-radius: 20px;
+            max-width: 900px;
             width: 100%;
-            padding: 30px;
+            max-height: 90vh;
+            padding: 25px;
             position: relative;
             box-shadow: 0 10px 30px rgba(0,0,0,0.3);
             border: 1px solid #f8c0d0;
             animation: modalZoom 0.3s ease;
             display: flex;
-            gap: 25px;
-            align-items: center;
+            flex-direction: column;
+            gap: 20px;
+            overflow-y: auto;
         }
 
         @keyframes modalZoom {
-            from { transform: scale(0.8); opacity: 0; }
+            from { transform: scale(0.9); opacity: 0; }
             to { transform: scale(1); opacity: 1; }
         }
 
         .modal-close {
             position: absolute;
-            top: 12px;
+            top: 15px;
             right: 18px;
             font-size: 28px;
             font-weight: bold;
@@ -458,15 +461,14 @@
         }
 
         .modal-body-left {
-            flex: 1;
-            max-width: 50%;
+            width: 100%;
             position: relative;
         }
 
         .slider-container {
             width: 100%;
             overflow: hidden;
-            border-radius: 10px;
+            border-radius: 12px;
             position: relative;
             background-color: #fffafb;
             display: flex;
@@ -482,7 +484,7 @@
         .slider-track img {
             width: 100%;
             height: auto;
-            max-height: 60vh;
+            max-height: 380px;
             object-fit: contain;
             flex-shrink: 0;
         }
@@ -491,7 +493,7 @@
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background: rgba(232, 99, 139, 0.8);
+            background: rgba(232, 99, 139, 0.85);
             color: white;
             border: none;
             width: 36px;
@@ -535,27 +537,48 @@
         }
 
         .modal-body-right {
-            flex: 1;
+            width: 100%;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: space-between;
             text-align: left;
-            max-height: 80vh;
-            overflow-y: auto;
         }
 
         .modal-body-right h4 {
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             color: var(--text-dark);
             margin-bottom: 12px;
+            padding-right: 25px;
         }
 
         .modal-body-right p {
             font-size: 0.95rem;
-            color: #666;
+            color: #555;
             line-height: 1.6;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             white-space: pre-line;
+        }
+
+        .modal-body-right .btn {
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        @media (min-width: 768px) {
+            .modal-content {
+                flex-direction: row;
+                padding: 30px;
+                overflow-y: visible;
+            }
+
+            .modal-body-left,
+            .modal-body-right {
+                width: 50%;
+            }
+
+            .slider-track img {
+                max-height: 450px;
+            }
         }
 
         .cart-overlay {
@@ -788,19 +811,6 @@
             }
             .hero h2 {
                 font-size: 2.5rem;
-            }
-            .modal-content {
-                flex-direction: column;
-                padding: 20px;
-                max-height: 90vh;
-                overflow-y: auto;
-            }
-            .modal-body-left {
-                max-width: 100%;
-                width: 100%;
-            }
-            .modal-body-right {
-                text-align: center;
             }
         }
     </style>
