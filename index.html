@@ -406,7 +406,6 @@
             border: 1px solid #f8c0d0;
         }
 
-        /* MODAL RESPONSIVO CORREGIDO */
         .modal {
             display: none;
             position: fixed;
@@ -427,7 +426,7 @@
             border-radius: 20px;
             max-width: 900px;
             width: 100%;
-            max-height: 90vh;
+            max-height: 88vh;
             padding: 25px;
             position: relative;
             box-shadow: 0 10px 30px rgba(0,0,0,0.3);
@@ -542,6 +541,9 @@
             flex-direction: column;
             justify-content: space-between;
             text-align: left;
+            max-height: 100%;
+            overflow-y: auto;
+            padding-right: 5px;
         }
 
         .modal-body-right h4 {
@@ -557,18 +559,20 @@
             line-height: 1.6;
             margin-bottom: 20px;
             white-space: pre-line;
+            max-height: none;
         }
 
         .modal-body-right .btn {
             width: 100%;
             margin-top: 10px;
+            flex-shrink: 0;
         }
 
         @media (min-width: 768px) {
             .modal-content {
                 flex-direction: row;
                 padding: 30px;
-                overflow-y: visible;
+                max-height: 85vh;
             }
 
             .modal-body-left,
@@ -577,7 +581,7 @@
             }
 
             .slider-track img {
-                max-height: 450px;
+                max-height: 400px;
             }
         }
 
@@ -881,6 +885,55 @@
         </div>
         
         <div class="products-grid" id="productsGrid">
+
+            <!-- Bandas para Elección de Chico 10 / Paje 10 con la segunda imagen agregada -->
+            <div class="product-card" data-images='["https://i.ibb.co/JWZ6j3VJ/Whats-App-Image-2026-09-01-at-12-10-11.jpg", "https://i.ibb.co/C3hRKhXq/Whats-App-Image-2026-09-01-at-12-08-54.jpg"]'>
+                <span class="tag-nuevo">Nuevo</span>
+                <img src="https://i.ibb.co/JWZ6j3VJ/Whats-App-Image-2026-09-01-at-12-10-11.jpg" alt="Bandas para Elección de Chico 10 / Paje 10" class="product-main-img">
+                <div class="product-card-body">
+                    <div>
+                        <span class="badge">👑 Eventos & Certámenes</span>
+                        <h4>Bandas para Elección de Chico 10 / Paje 10</h4>
+                        <p class="product-short-desc">Bandas ceremoniales masculinas diseñadas para elecciones estudiantiles, certámenes escolares, eventos de egresados o acompañantes de reina.</p>
+                        <span class="view-more-text">🔍 Ver detalles completos</span>
+                        <div class="full-description" style="display: none;">Bandas ceremoniales masculinas diseñadas para elecciones estudiantiles, certámenes escolares, eventos de egresados o acompañantes de reina.
+
+. Confección y formato: Realizadas en cinta de raso/satén blanca de alta calidad, brillo satinado y caída elegante, con confección en formato de estola/cuello para colgar cómodamente sobre los hombros.
+
+. Terminación ceremonial: Rematadas en los extremos con flecos dorados o plateados que aportan un acabado elegante y de distinción.
+
+. Tipografías y personalizado: Estampado vertical de gran visibilidad con la leyenda "CHICO 10" o "CHICO DIEZ" disponible en diferentes estilos tipográficos (estilo universitario/college, romano clásico o moderno).
+
+. Detalles adicionales: Apta para personalizar con las siglas, escudo o logo de la institución educativa o colegio.</div>
+                    </div>
+                    <button class="btn add-to-cart-card">Agregar al carrito</button>
+                </div>
+            </div>
+
+            <!-- Bandas para Elección de Reina -->
+            <div class="product-card" data-images='["https://i.ibb.co/xKHvLtX7/Whats-App-Image-2026-09-01-at-12-06-00.jpg", "https://i.ibb.co/Kj6bmqt8/Whats-App-Image-2026-09-01-at-12-07-41.jpg", "https://i.ibb.co/JW36Nzwy/Whats-App-Image-2026-09-01-at-12-08-16.jpg"]'>
+                <span class="tag-nuevo">Nuevo</span>
+                <img src="https://i.ibb.co/xKHvLtX7/Whats-App-Image-2026-09-01-at-12-06-00.jpg" alt="Bandas para Elección de Reina, Princesas y Damas de Honor" class="product-main-img">
+                <div class="product-card-body">
+                    <div>
+                        <span class="badge">👑 Eventos & Certámenes</span>
+                        <h4>Bandas para Elección de Reina, Princesas y Damas de Honor</h4>
+                        <p class="product-short-desc">Bandas ceremoniales en cinta de raso/satén con flecos decorativos e impresión personalizada para certámenes, eventos escolares y egresados.</p>
+                        <span class="view-more-text">🔍 Ver detalles completos</span>
+                        <div class="full-description" style="display: none;">Bandas ceremoniales confeccionadas especialmente para elecciones de reina, certámenes de belleza, eventos escolares, graduaciones o fiestas de egresados.
+
+. Material y confección: Confeccionadas en cinta de raso/satén de brillo elegante, suavidad al tacto y excelente caída.
+
+. Terminación de categoría: Bordes con flecos ceremoniales decorativos (disponibles en dorado o plateado) que le brindan un acabado distinguido.
+
+. Estampado personalizado: Impresión en tipografía cursiva elegante de alta definición con los títulos correspondientes (Reina, 1° Princesa, 2° Princesa, Damas de Honor).
+
+. Escudos e inscripciones: Apta para incluir el logo o escudo institucional del colegio, club o municipio, así como números romanos o arábigos según la preferencia.</div>
+                    </div>
+                    <button class="btn add-to-cart-card">Agregar al carrito</button>
+                </div>
+            </div>
+
             <!-- Chop de polímero -->
             <div class="product-card" data-images='["https://i.ibb.co/kgB3gR3f/Whats-App-Image-2026-08-27-at-21-24-02.jpg", "https://i.ibb.co/dsd6gpfb/Whats-App-Image-2026-08-27-at-21-24-01.jpg"]'>
                 <span class="tag-nuevo">Nuevo</span>
@@ -897,7 +950,7 @@
 
 . Personalización total: Apto para sublimar con fotos, ilustraciones, escudos, nombres o frases dedicadas en alta calidad de color.
 
-. Diseño clásico: Cuenta con asa ergonómica de fácil agarre y base reforzada con anillos estéticos.</div>
+. Diseño clásico: Cuenta con asa ergonómica de fácil agarre y base reinforced con anillos estéticos.</div>
                     </div>
                     <button class="btn add-to-cart-card">Agregar al carrito</button>
                 </div>
@@ -925,7 +978,7 @@
 
 . Servilleta de tela: Con diseño coordinado para la hora de comer.
 
-. Toallita con tira: Toalla de mano absorbente con cinta para colgar del cuello o la mochila y franja estampada haciendo juego.</div>
+. Toallita con tira: Toalla de mano absorbente con cinta para colgar del cuello o la mochila y franja stamped haciendo juego.</div>
                     </div>
                     <button class="btn add-to-cart-card">Agregar al carrito</button>
                 </div>
@@ -949,7 +1002,7 @@
 
 .Individual de tela: Manteles individuales lavables con bordes reforzados y diseño personalizado.
 
-.Servilleta de tela: Tela estampada haciendo juego para la merienda.
+.Servilleta de tela: Tela stamped haciendo juego para la merienda.
 
 .Toallita de mano: Toalla con tira para colgar del cuello o la mochila y franja estampada haciendo juego con el resto del set.</div>
                     </div>
@@ -1115,7 +1168,7 @@ Individual de tela haciendo juego: Mantelito individual de tela stamped con bord
 • Escudo o logo de la institución/empresa
 • Frase dedicatoria especial
 
-Confeccionados en plato cerámico decorativo de alta calidad sublimado full color. Incluye atril plástico soporte ideal para lucir en escritorios, repisas o exhibidores. Perfectos para reconocimientos, bodas, aniversarios, jubilaciones o eventos institucionales.</div>
+Confeccionados en plato cerámico decorativo de alta calidad sublimado full color. Incluye atril plástico soporte ideal para lucir en escritorios, repisas o exhibidores. Perfectos para reconocimientos, bodas, anniversarios, jubilaciones o eventos institucionales.</div>
                     </div>
                     <button class="btn add-to-cart-card">Agregar al carrito</button>
                 </div>
